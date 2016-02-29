@@ -1,0 +1,7 @@
+*.o
+.*
+*.axf
+*.map
+tags
+*.ld
+*.bin
