@@ -5,14 +5,14 @@
     .global _start
     .func _start
 _start:
-    B       __reset          /* Reset: relative branch allows remap */
-    B       .               /* Undefined Instruction */
-    B       .               /* Software Interrupt    */
-    B       .               /* Prefetch Abort        */
-    B       .               /* Data Abort            */
-    B       .               /* Reserved              */
-    B       __irq               /* IRQ                   */
-    B       .               /* FIQ                   */
+    b       __reset         /* Reset: relative branch allows remap */
+    b       .               /* Undefined Instruction */
+    b       .               /* Software Interrupt    */
+    b       .               /* Prefetch Abort        */
+    b       .               /* Data Abort            */
+    b       .               /* Reserved              */
+    b       __irq           /* IRQ                   */
+    b       .               /* FIQ                   */
 
     .align 4
 __reset:
@@ -46,7 +46,7 @@ __irq:
 	push	{r0, lr}
 
 	mov	    r0, sp
-	@bl	    do_irq
+	bl	    do_irq
 
 	@ Pop registers
 	pop 	{r0,lr}             /* CPSR, LR */
