@@ -34,7 +34,7 @@ __reset:
     mcr     p15, 0, r0, c12, c0, 0      @ VBAR
 
 	@ And call the C entrypoint
-	bl  main 
+	bl  main
     b   __error
 __error:
     b   __error

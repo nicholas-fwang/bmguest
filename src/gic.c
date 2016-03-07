@@ -116,8 +116,8 @@ void gic_configure_irq(uint32_t irq,
             icfg |= (2u << (2 * (irq % 16)));
 
         gicd_write(GICD_ICFGR(irq >> 4), icfg);
-        gicd_write(GICD_ITARGETSR(irq >> 2), cpumask);
-        gicd_write(GICD_IPRIORITYR(irq >> 2), priority);
+        //gicd_write(GICD_ITARGETSR(irq >> 2), cpumask);
+        //gicd_write(GICD_IPRIORITYR(irq >> 2), priority);
 
         /* enable forwarding */
         enable_irq(irq);
@@ -172,6 +172,7 @@ void do_irq(void *pregs)
     if (irq_handlers[irq]) {
         irq_handlers[irq]();
     }
+
     gic_completion_irq(irq);
     gic_deactivate_irq(irq);
 }
