@@ -4,7 +4,7 @@ TARGET(binary)
 ENTRY(_start)
 
 MEMORY {
-    RAM (rwx) : ORIGIN = 0x80500000, LENGTH = 128M
+    RAM (rwx) : ORIGIN = 0x70000000, LENGTH = 128M
 }
 
 C_STACK_SIZE   = 512;

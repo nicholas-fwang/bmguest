@@ -79,15 +79,16 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include <pl01x.h>
+//#include <pl01x.h>
+#include <serial_sh.h>
 
 extern int __fputc(int c, FILE *stream);
 /* Put character for elf-loader */
 int
 __fputc(int c, FILE *stream)
 {
-    pl01x_putc(c);
-
+//    pl01x_putc(c);
+	serial_putc(c);
 	return(0);
 }
 

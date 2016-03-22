@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include <pl01x.h>
+//#include <pl01x.h>
+#include <serial_sh.h>
 #include <gic.h>
 
 #include <test_vdev_sample.h>
@@ -10,7 +11,8 @@
 void main(void)
 {
 	int i = 0;
-    pl01x_init(115200, 24000000);
+ //   pl01x_init(115200, 24000000);
+	serial_init();
     __malloc_init();
     test_vdev_sample();
     gic_init();
@@ -20,5 +22,7 @@ void main(void)
 
     printf("BMGuest is Done\n");
     while(1)
-        ;
+	{
+		printf("hello world\n");
+	}
 }
